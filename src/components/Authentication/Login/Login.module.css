@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    min-height: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+   
+
+
+}
+.h1{
+    padding-bottom: 1rem;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+    box-sizing: content-box;
+    border-radius: 0.5rem;
+    border: solid #0f0f0f 1px;
+    padding: 1rem;
+
+}
+
+
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+    font-size: 17px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+
+label,
+button {
+    margin-top: 0rem;
+}
+
+button {
+    padding: 0.5rem;
+}
+
+.errmsg {
+    background-color: rgb(255, 255, 255);
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 0.5rem;
+}
+.p1{
+    margin-top: 1rem;
+}
