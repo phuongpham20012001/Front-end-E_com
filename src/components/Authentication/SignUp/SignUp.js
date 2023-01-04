@@ -41,6 +41,10 @@ const SignUp = () => {
         "user",
         JSON.stringify(response.data["data"]["user"]["role"])
       );
+      localStorage.setItem(
+        "token",
+        JSON.stringify(response.data.token)
+      );
       navigate("/");
       setUser("");
       setPwd("");

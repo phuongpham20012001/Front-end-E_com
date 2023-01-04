@@ -3,10 +3,10 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 const NavBar = () => {
   const auth = localStorage.getItem("user");
-  console.log(auth);
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
+    navigate("/")
   };
   return (
     <div>
@@ -33,7 +33,7 @@ const NavBar = () => {
           <div className={styles.title}>Logo</div>
           <ul className="ul1">
             <li>
-              <Link to="/">Home</Link>
+              Home
             </li>
             <li>Pricing</li>
             <li>About</li>
