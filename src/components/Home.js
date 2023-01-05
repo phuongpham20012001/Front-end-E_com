@@ -12,7 +12,6 @@ function Home() {
           const result = await axios(USER_URL,
             {headers: { Authorization: `Bearer ${token}` }});
           setData(result.data);
-          console.log(result.data)
         } catch (err) {
           if (err.response) {
             return <div>

@@ -26,6 +26,9 @@ const NavBar = () => {
                 Logout
               </Link>
             </li>
+            <li>
+              <Link to ='/updatePassword'>Change Password</Link>
+            </li>
           </ul>
         </nav>
       ) : (

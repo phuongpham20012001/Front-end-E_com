@@ -20,6 +20,7 @@ const SignUp = () => {
   useEffect(() => {
     setErrMsg("");
   }, [user, pwd]);
+  //axios
   const handleSubmit = async (e) => {
     e.preventDefault();
 

@@ -5,15 +5,21 @@ import Login from "./components/Authentication/Login/Login";
 import React from "react";
 import SignUp from "./components/Authentication/SignUp/SignUp";
 import Home from "./components/Home";
+import UpdatePassword from "./components/Authentication/UpdateInfor/UpdatePassword";
+import ForgotPassword from "./components/Authentication/Forgotpassword/Forgotpassword";
+import SetNewPassword from "./components/Authentication/Forgotpassword/SetNewPassword";
 
 function App() {
   return (
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/resetPassword/:token" element={<SetNewPassword />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/updatePassword" element={<UpdatePassword />} />
       </Routes>
       <Footer />
     </>
