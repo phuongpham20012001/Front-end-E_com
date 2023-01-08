@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import UpdatePassword from "./components/Authentication/UpdateInfor/UpdatePassword";
 import ForgotPassword from "./components/Authentication/Forgotpassword/Forgotpassword";
 import SetNewPassword from "./components/Authentication/Forgotpassword/SetNewPassword";
+import UpdateAccount from "./components/Authentication/UpdateInfor/UpdateAccount";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/updateAccount" element={<UpdateAccount />} />
         <Route path="/login" element={<Login />} />
         <Route path="/resetPassword/:token" element={<SetNewPassword />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />

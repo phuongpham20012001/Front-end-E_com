@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+
 import styles from "./Forgotpassword.module.css";
 import axios from "../../API/axios";
 const ForgotPassword = () => {
   const FORGOTPASSWORD_URL = "/forgotPassword";
-  const navigate = useNavigate();
   const userRef = useRef();
   const errRef = useRef();
   const [user, setUser] = useState("");
@@ -21,7 +20,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
+      await axios.post(
         FORGOTPASSWORD_URL,
         JSON.stringify({ email: user }),
         {

@@ -1,14 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import styles from "./Forgotpassword.module.css";
 import axios from "../../API/axios";
 const SetNewPassword = () => {
   let { token } = useParams();
-  const SETNEWPASSWORD_URL = `/resetPassword/${token}`;
-  const navigate = useNavigate();
+  const SETNEWPASSWORD_URL = `/resetPassword/${token}`;;
   const userRef = useRef();
   const errRef = useRef();
-  const [user, setUser] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [pwd, setPwd] = useState("");
   const [pwdCf, setPwdCF] = useState("");
@@ -21,12 +19,12 @@ const SetNewPassword = () => {
   useEffect(() => {
     setErrMsg("");
     console.log({ token });
-  }, [user]);
+  }, [pwd], [pwdCf]);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.patch(
+      await axios.patch(
         SETNEWPASSWORD_URL,
         JSON.stringify({ password: pwd, passwordConfirm: pwdCf }),
         {
@@ -34,7 +32,7 @@ const SetNewPassword = () => {
         }
       );
       setSuccess(true);
-      console.log("okay")
+      console.log("okay");
     } catch (err) {
       console.log(err.response.data.message);
       if (err.response) {
