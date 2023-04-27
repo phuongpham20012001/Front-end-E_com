@@ -12,25 +12,27 @@ import Home from "./components/UI/Home";
 import PrivateRoutes from "./components/utils/PrivateRoute";
 import ImageUploader from "./components/Product/CreateProduct";
 import ProductList from "./components/Product/ViewProduct";
+import { ShopContextProvider } from "./components/Authentication/Context/ShopProvider";
 
 function App() {
   return (
     <>
       <NavBar />
-
-      <Routes>
-        <Route element={<PrivateRoutes />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/image" element={<ImageUploader />} />
-          <Route path="/updatePassword" element={<UpdatePassword />} />
-          <Route path="/updateAccount" element={<UpdateAccount />} />
-        </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/product" element={<ProductList />} />
-        <Route path="/resetPassword/:token" element={<SetNewPassword />} />
-        <Route path="/forgotPassword" element={<ForgotPassword />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
+      <ShopContextProvider>
+        <Routes>
+          <Route element={<PrivateRoutes />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/image" element={<ImageUploader />} />
+            <Route path="/updatePassword" element={<UpdatePassword />} />
+            <Route path="/updateAccount" element={<UpdateAccount />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/product" element={<ProductList />} />
+          <Route path="/resetPassword/:token" element={<SetNewPassword />} />
+          <Route path="/forgotPassword" element={<ForgotPassword />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </ShopContextProvider>
       <Footer />
     </>
   );
