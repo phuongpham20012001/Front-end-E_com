@@ -13,11 +13,13 @@ import PrivateRoutes from "./components/utils/PrivateRoute";
 import ImageUploader from "./components/Product/CreateProduct";
 import ProductList from "./components/Product/ViewProduct";
 import { ShopContextProvider } from "./components/Authentication/Context/ShopProvider";
+import { Cart } from "./components/Product/Cart";
 
 function App() {
   return (
     <>
       <NavBar />
+     
       <ShopContextProvider>
         <Routes>
           <Route element={<PrivateRoutes />}>
@@ -28,6 +30,7 @@ function App() {
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/product" element={<ProductList />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/resetPassword/:token" element={<SetNewPassword />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/signup" element={<SignUp />} />

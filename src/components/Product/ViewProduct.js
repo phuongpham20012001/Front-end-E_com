@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "../API/axios";
 import styles from "./ViewProduct.module.css";
+import { Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../Authentication/Context/ShopProvider";
 const PRODUCT_URL = "/product";
 const Product = ({ product }) => {
@@ -32,10 +33,13 @@ const ProductList = () => {
 
   return (
     <div>
-      <div>
+      <div className={styles.container}>
         <div className={styles.shopTitle}>
           <h1> Tech Shop</h1>
+          <Link to="/cart">Cart</Link>
+          
         </div>
+      
       </div>
 
       <div>
