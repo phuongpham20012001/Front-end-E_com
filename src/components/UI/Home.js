@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "./API/axios";
+import axios from "../API/axios";
 function Home() {
   const USER_URL = "/user";
   const [data, setData] = useState({});

@@ -1,10 +1,9 @@
 import styles from "./Navbar.module.css";
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import axios from "../API/axios";
+import axios from "../../API/axios";
 const NavBar = () => {
   const DELETE_URL = "/deleteMe";
   const auth = localStorage.getItem("user");
@@ -28,27 +27,33 @@ const NavBar = () => {
         {
           label: "Yes",
           onClick: () => handleDelete(),
-         
         },
         {
-          label: "No"
-       
+          label: "No",
         },
       ],
     });
   };
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
   return (
     <div>
-      {auth ? (
+      {auth  ? (
         <nav className={styles.nav}>
           <div className={styles.title}>Logo</div>
           <ul className="ul1">
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>Pricing</li>
-            <li>About</li>
+            <Link to="/product">Product</Link>
+            <Link to="/#">About</Link>
           </ul>
           <ul>
             <li>
@@ -56,25 +61,34 @@ const NavBar = () => {
                 Logout
               </Link>
             </li>
-            <li>
-              <Link to="/updatePassword">Change Password</Link>
-            </li>
-            <li>
-              <Link to="/updateAccount">Update Account</Link>
-            </li>
-            <li>
-              <Link onClick={submit}>Delete Account</Link>
+            <li className={styles.dropdown} onMouseLeave={closeDropdown}>
+              <div
+                className={styles.dropdownToggle}
+                onMouseEnter={toggleDropdown}
+                onClick={toggleDropdown}
+              >
+                Account Settings <span className={styles.caret}></span>
+              </div>
+              {isDropdownOpen && (
+                <ul className={styles.dropdownMenu}>
+                  <li>
+                    <Link to="/updatePassword">Change Password</Link>
+                  </li>
+                  <li>
+                    <Link to="/updateAccount">Update Account</Link>
+                  </li>
+                  <li>
+                    <Link onClick={submit}>Delete Account</Link>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
         </nav>
-      ) : (
+      ) :(
         <nav className={styles.nav}>
           <div className={styles.title}>Logo</div>
-          <ul className="ul1">
-            <li>Home</li>
-            <li>Pricing</li>
-            <li>About</li>
-          </ul>
+          <ul className="ul1"></ul>
           <ul>
             <li>
               <Link to="/login">Log In</Link>

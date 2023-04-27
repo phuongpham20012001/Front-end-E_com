@@ -15,6 +15,7 @@ const Login = () => {
 
   useEffect(() => {
     userRef.current.focus();
+    localStorage.clear();
   }, []);
 
   useEffect(() => {

@@ -1,27 +1,35 @@
-import NavBar from "./components/NavBar/Navbar";
+import NavBar from "./components/UI/NavBar/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/UI/Footer/Footer";
 import Login from "./components/Authentication/Login/Login";
 import React from "react";
 import SignUp from "./components/Authentication/SignUp/SignUp";
-import Home from "./components/Home";
-import UpdatePassword from "./components/Authentication/UpdateInfor/UpdatePassword";
+import UpdatePassword from "./components/Authentication/UpdateUser/UpdatePassword";
 import ForgotPassword from "./components/Authentication/Forgotpassword/Forgotpassword";
 import SetNewPassword from "./components/Authentication/Forgotpassword/SetNewPassword";
-import UpdateAccount from "./components/Authentication/UpdateInfor/UpdateAccount";
+import UpdateAccount from "./components/Authentication/UpdateUser/UpdateAccount";
+import Home from "./components/UI/Home";
+import PrivateRoutes from "./components/utils/PrivateRoute";
+import ImageUploader from "./components/Product/CreateProduct";
+import ProductList from "./components/Product/ViewProduct";
 
 function App() {
   return (
     <>
       <NavBar />
+
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/updateAccount" element={<UpdateAccount />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/image" element={<ImageUploader />} />
+          <Route path="/updatePassword" element={<UpdatePassword />} />
+          <Route path="/updateAccount" element={<UpdateAccount />} />
+        </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/product" element={<ProductList />} />
         <Route path="/resetPassword/:token" element={<SetNewPassword />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/updatePassword" element={<UpdatePassword />} />
       </Routes>
       <Footer />
     </>

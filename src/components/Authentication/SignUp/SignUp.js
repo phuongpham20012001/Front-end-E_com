@@ -47,10 +47,6 @@ const SignUp = () => {
         JSON.stringify(response.data.token)
       );
       navigate("/");
-      setUser("");
-      setPwd("");
-      setPwd("");
-      setPwdCF("");
     } catch (err) {
       if (err.response) {
         setErrMsg("Check the given information again");

@@ -9,13 +9,15 @@ section {
     flex-direction: column;
     align-items: center;
     padding: 1.25rem;
-   
+
 
 
 }
-.h1{
+
+.h1 {
     padding-bottom: 1rem;
 }
+
 form {
     display: flex;
     flex-direction: column;
@@ -35,7 +37,7 @@ input[type="text"],
 input[type="password"],
 button,
 textarea {
-    font-size: 17px;
+    font-size: 16px;
     padding: 0.25rem;
     border-radius: 0.5rem;
 }
@@ -63,6 +65,7 @@ button {
     justify-content: space-evenly;
     margin-top: 0.5rem;
 }
-.p1{
+
+.p1 {
     margin-top: 1rem;
 }

@@ -1,6 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect,useContext } from "react";
 import styles from "./UpdateAccount.module.css";
 import axios from "../../API/axios";
+import AuthContext from "../Context/AuthProvider";
 const UPDATEACCOUNT_URL = "/updateMe";
 const UpdateAccount = () => {
   const userRef = useRef();
@@ -10,12 +11,14 @@ const UpdateAccount = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
   let token = localStorage.getItem("token");
+  const value = useContext(AuthContext)
   useEffect(() => {
     userRef.current.focus();
   }, []);
 
   useEffect(() => {
     setErrMsg("");
+    console.log(value.auth)
   }, [user][name]);
   //axios
   const handleSubmit = async (e) => {
@@ -44,6 +47,8 @@ const UpdateAccount = () => {
     }
   };
   return (
+    
+
     <div>
       {success ? (
         <section> Your information have been updated </section>
