@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "../API/axios";
 import styles from "./ViewProduct.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ShopContext } from "../Authentication/Context/ShopProvider";
 const PRODUCT_URL = "/product";
 const Product = ({ product }) => {

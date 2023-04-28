@@ -38,7 +38,10 @@ const ForgotPassword = () => {
   return (
     <div>
       {success ? (
-        <section>The token has been sent successfully.</section>
+        
+        <section>The token has been sent successfully, please check your email.
+          .</section> 
+        
       ) : (
         <div>
           <section className={styles.form}>
@@ -47,7 +50,8 @@ const ForgotPassword = () => {
             </p>
             <h1 className={styles.h1}>Enter your username</h1>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="username">Username:</label>
+              <label htmlFor="username">Username: </label>
+              <div>If you signup with your real email address, it will send you a link with token to your account.</div>
               <input
                 type="text"
                 id="username"

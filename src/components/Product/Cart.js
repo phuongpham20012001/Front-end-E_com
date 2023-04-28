@@ -38,7 +38,7 @@ export const Cart = () => {
           <button onClick={() => navigate("/product")}> Continue Shopping </button>
           <button
             onClick={() => {
-              checkout();
+              // checkout();
               navigate("/checkout");
             }}
           >

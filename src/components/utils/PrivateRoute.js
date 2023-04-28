@@ -3,9 +3,9 @@ import React from "react";
 import ImageUploader from "../Product/CreateProduct";
 import UpdateAccount from "../Authentication/UpdateUser/UpdateAccount";
 import UpdatePassword from "../Authentication/UpdateUser/UpdatePassword";
-import Home from "../UI/Home";
 import Login from "../Authentication/Login/Login";
 import Unauthorized from "./Unauthorized";
+import ProductList from "../Product/ViewProduct";
 
 const PrivateRoutes = () => {
   let user = JSON.parse(localStorage.getItem("user"));
@@ -13,11 +13,12 @@ const PrivateRoutes = () => {
   if (user === "admin") {
     return (
       <>
+      
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/updatePassword" element={<UpdatePassword />} />
           <Route path="/updateAccount" element={<UpdateAccount />} />
           <Route path="/image" element={<ImageUploader />} />
+          <Route path="/product" element={<ProductList />} />
         </Routes>
       </>
     );
@@ -28,7 +29,6 @@ const PrivateRoutes = () => {
       <>
         <Routes>
           <Route path="/image" element={<Unauthorized />} />
-          <Route path="/" element={<Home />} />
           <Route path="/updatePassword" element={<UpdatePassword />} />
           <Route path="/updateAccount" element={<UpdateAccount />} />
         </Routes>

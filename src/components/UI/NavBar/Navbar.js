@@ -11,7 +11,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
-    navigate("/");
+    navigate("/product");
   };
   const handleDelete = async () => {
     token = token.replace(/"/g, "");
@@ -49,11 +49,8 @@ const NavBar = () => {
         <nav className={styles.nav}>
           <div className={styles.title}>Logo</div>
           <ul className="ul1">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
             <Link to="/product">Product</Link>
-            <Link to="/#">About</Link>
+            <Link to="/about">About</Link>
           </ul>
           <ul>
             <li>
@@ -89,6 +86,7 @@ const NavBar = () => {
         <nav className={styles.nav}>
           <div className={styles.title}>Logo</div>
           <ul className="ul1"></ul>
+           <ul> <Link to="/about">About</Link></ul>
           <ul>
             <li>
               <Link to="/login">Log In</Link>

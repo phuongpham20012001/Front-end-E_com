@@ -38,7 +38,7 @@ const Login = () => {
       );
       localStorage.setItem("token", JSON.stringify(response.data.token));
       setAuth({ user, pwd });
-      navigate("/");
+      navigate("/product");
       setUser("");
       setPwd("");
     } catch (err) {
