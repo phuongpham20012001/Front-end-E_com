@@ -5,14 +5,15 @@ export const ShopContext = createContext(null);
 export const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const PRODUCT_URL = "/product";
-
+  const ORDER_URL = "/order";
+  let token = localStorage.getItem("token");
   useEffect(() => {
     axios
       .get(PRODUCT_URL)
       .then((res) => setProducts(res.data.data))
-      .catch((err) => console.error(err)); 
+      .catch((err) => console.error(err));
   }, []);
-   
+
   const getDefaultCart = () => {
     let cart = {};
     for (let i = 1; i < products.length + 1; i++) {
@@ -29,22 +30,40 @@ export const ShopContextProvider = (props) => {
         totalAmount += cartItems[item] * itemInfo.price;
       }
     }
-    console.log(totalAmount)
     return totalAmount;
-};
+  };
 
- 
+  const checkOut = () => {
+    token = token.replace(/"/g, "");
+    const totalAmount = getTotalCartAmount();
+    axios
+      .post(
+        ORDER_URL,
+        {
+          totalAmount: totalAmount,
+          items: cartItems,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
 
   const addToCart = (itemId) => {
-   
     setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
-    
-  };
-  const updateCartItemCount = (newAmount, itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId]) - 1 }));
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
   const contextValue = {
@@ -52,9 +71,9 @@ export const ShopContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
-    updateCartItemCount
+    checkOut,
   };
-  console.log(cartItems)
+
   return (
     <ShopContext.Provider value={contextValue}>
       {props.children}

@@ -14,6 +14,7 @@ function ImageUploader() {
   const [success, setSuccess] = useState(false);
   let [loading, setLoading] = useState(false);
   let token = localStorage.getItem("token");
+  
   const override = {
     margin: "0 auto",
   };

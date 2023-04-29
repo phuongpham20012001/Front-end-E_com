@@ -6,7 +6,7 @@ import { ShopContext } from "../Authentication/Context/ShopProvider";
 import { CartItem } from "./Cart_item";
 
 export const Cart = () => {
-  const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
+  const { cartItems, getTotalCartAmount, checkOut } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -38,7 +38,7 @@ export const Cart = () => {
           <button onClick={() => navigate("/product")}> Continue Shopping </button>
           <button
             onClick={() => {
-              // checkout();
+              checkOut();
               navigate("/checkout");
             }}
           >

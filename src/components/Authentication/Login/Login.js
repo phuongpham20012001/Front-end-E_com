@@ -32,10 +32,7 @@ const Login = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      localStorage.setItem(
-        "user",
-        JSON.stringify(response.data["data"]["user"]["role"])
-      );
+
       localStorage.setItem("token", JSON.stringify(response.data.token));
       setAuth({ user, pwd });
       navigate("/product");

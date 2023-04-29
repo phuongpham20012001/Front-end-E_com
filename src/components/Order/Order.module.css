@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  thead th {
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  tbody td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  tbody td ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  tbody td ul li {
+    margin-bottom: 8px;
+  }
+  

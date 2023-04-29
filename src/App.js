@@ -8,7 +8,6 @@ import UpdatePassword from "./components/Authentication/UpdateUser/UpdatePasswor
 import ForgotPassword from "./components/Authentication/Forgotpassword/Forgotpassword";
 import SetNewPassword from "./components/Authentication/Forgotpassword/SetNewPassword";
 import UpdateAccount from "./components/Authentication/UpdateUser/UpdateAccount";
-
 import PrivateRoutes from "./components/utils/PrivateRoute";
 import ImageUploader from "./components/Product/CreateProduct";
 import ProductList from "./components/Product/ViewProduct";
@@ -16,12 +15,12 @@ import { ShopContextProvider } from "./components/Authentication/Context/ShopPro
 import { Cart } from "./components/Product/Cart";
 import Checkout from "./components/Product/Check_out";
 import About from "./components/UI/About";
+import ViewOrder from "./components/Order/OrderAdmin";
 
 function App() {
   return (
     <>
       <NavBar />
-
       <ShopContextProvider>
         <Routes>
           <Route element={<PrivateRoutes />}>
@@ -29,11 +28,11 @@ function App() {
             <Route path="/updatePassword" element={<UpdatePassword />} />
             <Route path="/updateAccount" element={<UpdateAccount />} />
             <Route path="/product" element={<ProductList />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/vieworder" element={<ViewOrder />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Route>
           <Route path="/login" element={<Login />} />
-          <Route path="/checkout" element={<Checkout />} />
-
-          <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
           <Route path="/resetPassword/:token" element={<SetNewPassword />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
