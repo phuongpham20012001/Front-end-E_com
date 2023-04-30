@@ -1,19 +1,19 @@
 import styles from "./Navbar.module.css";
-import React, { useState, useContext } from "react";
+import React, { useState,useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
-import AuthContext from "../../Authentication/Context/AuthProvider";
+import AuthContext from '../../Authentication/Context/AuthProvider';
 import "react-confirm-alert/src/react-confirm-alert.css";
 import axios from "../../API/axios";
 const NavBar = () => {
   const DELETE_URL = "/deleteMe";
   // chỉnh lại cái navBAr
   const { auth, setAuth } = useContext(AuthContext);
-
+  console.log(auth)
   let token = localStorage.getItem("token");
   const navigate = useNavigate();
   const logout = () => {
-    setAuth({});
+    setAuth(null, null); // Use null instead of empty strings
     navigate("/login");
   };
   const handleDelete = async () => {
@@ -48,7 +48,7 @@ const NavBar = () => {
   };
   return (
     <div>
-      {auth ? (
+      {auth  ? (
         <nav className={styles.nav}>
           <div className={styles.title}>Logo</div>
           <ul className="ul1">
@@ -85,14 +85,11 @@ const NavBar = () => {
             </li>
           </ul>
         </nav>
-      ) : (
+      ) :(
         <nav className={styles.nav}>
           <div className={styles.title}>Logo</div>
           <ul className="ul1"></ul>
-          <ul>
-            {" "}
-            <Link to="/about">About</Link>
-          </ul>
+           <ul> <Link to="/about">About</Link></ul>
           <ul>
             <li>
               <Link to="/login">Log In</Link>

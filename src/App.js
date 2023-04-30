@@ -16,6 +16,7 @@ import { Cart } from "./components/Product/Cart";
 import Checkout from "./components/Product/Check_out";
 import About from "./components/UI/About";
 import ViewOrder from "./components/Order/OrderAdmin";
+import Unauthorized from "./components/utils/Unauthorized";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
             <Route path="/vieworder" element={<ViewOrder />} />
             <Route path="/checkout" element={<Checkout />} />
           </Route>
+          <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route path="/resetPassword/:token" element={<SetNewPassword />} />
