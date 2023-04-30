@@ -2,11 +2,13 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import AuthContext from "../Context/AuthProvider";
+import RoleContext from "../Context/RoleProvider";
 import axios from "../../API/axios";
 const LOGIN_URL = "/login";
 const Login = () => {
   const navigate = useNavigate();
   const { setAuth } = useContext(AuthContext);
+  const { setRole } = useContext(RoleContext);
   const userRef = useRef();
   const errRef = useRef();
   const [user, setUser] = useState("");
@@ -35,7 +37,15 @@ const Login = () => {
 
       localStorage.setItem("token", JSON.stringify(response.data.token));
       setAuth({ user, pwd });
-      navigate("/product");
+      setRole(response.data.data.user.role)
+   
+
+      if (response.data.data.user.role === "admin") {
+        navigate("/viewadmin");
+      } else if (response.data.data.user.role === "user") {
+        navigate("/product");
+      }
+
       setUser("");
       setPwd("");
     } catch (err) {

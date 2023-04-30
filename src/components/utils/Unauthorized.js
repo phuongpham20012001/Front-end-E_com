@@ -12,8 +12,9 @@ const Unauthorized = () => {
     <section className={styles.section}>
       <h1 className={styles.title}>Unauthorized</h1>
       <p className={styles.message}>You do not have access to the requested page.</p>
+      <p className={styles.message}>You need to login again.</p>
       <div className={styles.flexGrow}>
-        <button className={styles.button} onClick={goBack}>Go Back</button>
+        <button className={styles.button} onClick={goBack}>Login</button>
       </div>
     </section>
   );

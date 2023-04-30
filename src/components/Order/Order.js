@@ -30,6 +30,7 @@ const Order = () => {
           <th className={styles.th}>Total Amount</th>
           <th className={styles.th}>Items</th>
           <th className={styles.th}>Status</th>
+          
         </tr>
       </thead>
       <tbody>

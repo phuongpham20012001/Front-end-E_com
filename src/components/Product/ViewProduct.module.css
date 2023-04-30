@@ -32,7 +32,7 @@
 }
 .product {
   width: 150px;
-  height: 100px;
+  height: 115px;
   margin: 9rem;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@
 
 .product img {
   height: 12rem;
-  width: 100%;
+
   
 }
 

@@ -52,13 +52,17 @@ export const ShopContextProvider = (props) => {
       .then(
         (response) => {
           console.log(response);
+
+          resetContext();
         },
         (error) => {
           console.log(error);
         }
       );
   };
-
+  const resetContext = () => {
+    setCartItems(getDefaultCart());
+  };
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
   };

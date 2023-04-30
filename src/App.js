@@ -18,16 +18,18 @@ import About from "./components/UI/About";
 import ViewOrder from "./components/Order/OrderAdmin";
 import Unauthorized from "./components/utils/Unauthorized";
 import Order from "./components/Order/Order";
+import ProductListAdmin from "./components/Product/ViewProductAdmin";
 
 function App() {
   return (
     <>
-  
       <NavBar />
+
       <ShopContextProvider>
         <Routes>
           <Route element={<PrivateRoutes />}>
-            <Route path="/image" element={<ImageUploader />} />
+            <Route path="/createproduct" element={<ImageUploader />} />
+            <Route path="/viewadmin" element={<ProductListAdmin />} />
             <Route path="/updatePassword" element={<UpdatePassword />} />
             <Route path="/updateAccount" element={<UpdateAccount />} />
             <Route path="/product" element={<ProductList />} />
@@ -45,6 +47,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </ShopContextProvider>
+
       <Footer />
     </>
   );

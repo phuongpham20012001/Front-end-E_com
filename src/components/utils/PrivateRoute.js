@@ -11,6 +11,7 @@ import React, { useState, useEffect } from "react";
 import { Cart } from "../Product/Cart";
 import Checkout from "../Product/Check_out";
 import Order from "../Order/Order";
+import ProductListAdmin from "../Product/ViewProductAdmin";
 
 const PrivateRoutes = () => {
   const ROLE_URL = "/role";
@@ -45,11 +46,13 @@ const PrivateRoutes = () => {
           <Routes>
             <Route path="/updatePassword" element={<UpdatePassword />} />
             <Route path="/updateAccount" element={<UpdateAccount />} />
-            <Route path="/image" element={<ImageUploader />} />
-            <Route path="/product" element={<ProductList />} />
+            <Route path="/createproduct" element={<ImageUploader />} />
+            <Route path="/product" element={<Unauthorized />} />
             <Route path="/vieworder" element={<ViewOrder />} />
             <Route path="/cart" element={<Unauthorized />} />
             <Route path="/checkout" element={<Unauthorized />} />
+            <Route path="/viewadmin" element={<ProductListAdmin />} />
+            <Route path="/order" element={<Unauthorized />} />
           </Routes>
         </>
       );
@@ -59,7 +62,8 @@ const PrivateRoutes = () => {
       return (
         <>
           <Routes>
-            <Route path="/image" element={<Unauthorized />} />
+            <Route path="/viewadmin" element={<Unauthorized />} />
+            <Route path="/createproduct" element={<Unauthorized />} />
             <Route path="/vieworder" element={<Unauthorized />} />
             <Route path="/updatePassword" element={<UpdatePassword />} />
             <Route path="/updateAccount" element={<UpdateAccount />} />
