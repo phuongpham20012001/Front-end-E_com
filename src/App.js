@@ -17,10 +17,12 @@ import Checkout from "./components/Product/Check_out";
 import About from "./components/UI/About";
 import ViewOrder from "./components/Order/OrderAdmin";
 import Unauthorized from "./components/utils/Unauthorized";
+import Order from "./components/Order/Order";
 
 function App() {
   return (
     <>
+  
       <NavBar />
       <ShopContextProvider>
         <Routes>
@@ -32,9 +34,10 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/vieworder" element={<ViewOrder />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order" element={<Order />} />
           </Route>
           <Route path="/unauthorized" element={<Unauthorized />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/*" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route path="/resetPassword/:token" element={<SetNewPassword />} />

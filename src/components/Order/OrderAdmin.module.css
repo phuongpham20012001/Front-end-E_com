@@ -1,0 +1,43 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.th,
+.td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.th {
+  background-color: #333;
+  color: #fff;
+}
+
+.td {
+  border-bottom: 1px solid #ddd;
+}
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.li {
+  margin-bottom: 0.5rem;
+}
+
+.pending {
+  color: orange;
+}
+
+.delivered {
+  color: green;
+}
+
+.canceled {
+  color: red;
+}

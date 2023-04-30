@@ -1,28 +1,50 @@
-table {
-    border-collapse: collapse;
+.table {
     width: 100%;
-  }
-  
-  thead th {
-    background-color: #ddd;
-    border: 1px solid #ddd;
-    padding: 8px;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+.th,
+.td {
     text-align: left;
-  }
-  
-  tbody td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  tbody td ul {
+    padding: 0.5rem;
+}
+
+.th {
+    background-color: #333;
+    color: #fff;
+}
+
+.td {
+    border-bottom: 1px solid #ddd;
+}
+
+.ul {
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    list-style: none;
-  }
-  
-  tbody td ul li {
-    margin-bottom: 8px;
-  }
-  
+}
+
+.li {
+    margin-bottom: 0.5rem;
+}
+
+.pending {
+    color: orange;
+}
+
+.delivered {
+    color: green;
+}
+
+.canceled {
+    color: rgb(28, 27, 27);
+}
+
+.noOrders {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+    color: rgb(22, 22, 22);
+}

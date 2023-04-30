@@ -14,8 +14,9 @@ export const Cart = () => {
   useEffect(() => {
     axios
       .get(PRODUCT_URL)
-      .then((res) => setProducts(res.data.data))
+      .then((res) => setProducts(res.data.data)) 
       .catch((err) => console.error(err));
+      console.log(products)
   }, []);
 
   return (

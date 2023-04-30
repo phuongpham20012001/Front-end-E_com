@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "../API/axios";
-import styles from "./OrderAdmin.module.css";
-const ViewOrder = () => {
+import styles from "./Order.module.css";
+
+const Order = () => {
   const [order, setOrder] = useState([]);
-  const ORDER_URL = "/orderadmin";
+  const ORDER_URL = "/order";
   let token = localStorage.getItem("token");
   token = token.replace(/"/g, "");
 
@@ -18,8 +19,8 @@ const ViewOrder = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  if (!order.data) {
-    return <div>Loading...</div>;
+  if (!order.data || order.data.length === 0) {
+    return <div className={styles.noOrders}>There are no orders.</div>
   }
 
   return (
@@ -34,17 +35,19 @@ const ViewOrder = () => {
       <tbody>
         {order.data.map((order) => (
           <tr key={order._id}>
-            <td className={styles.td}>{order.totalAmount}</td>
+            <td className={styles.td}>${order.totalAmount.toFixed(2)}</td>
             <td className={styles.td}>
               <ul className={styles.ul}>
                 {Object.entries(order.items).map(([key, value]) => (
                   <li key={key} className={styles.li}>
-                    {value}
+                    {key} x {value}
                   </li>
                 ))}
               </ul>
             </td>
-            <td className={styles.td}>{order.status}</td>
+            <td className={`${styles.td} ${styles[order.status.toLowerCase()]}`}>
+              {order.status}
+            </td>
           </tr>
         ))}
       </tbody>
@@ -52,4 +55,4 @@ const ViewOrder = () => {
   );
 };
 
-export default ViewOrder;
+export default Order;

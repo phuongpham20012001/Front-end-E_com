@@ -8,6 +8,9 @@ import ProductList from "../Product/ViewProduct";
 import ViewOrder from "../Order/OrderAdmin";
 import axios from "../API/axios";
 import React, { useState, useEffect } from "react";
+import { Cart } from "../Product/Cart";
+import Checkout from "../Product/Check_out";
+import Order from "../Order/Order";
 
 const PrivateRoutes = () => {
   const ROLE_URL = "/role";
@@ -40,12 +43,13 @@ const PrivateRoutes = () => {
       return (
         <>
           <Routes>
-            
             <Route path="/updatePassword" element={<UpdatePassword />} />
             <Route path="/updateAccount" element={<UpdateAccount />} />
             <Route path="/image" element={<ImageUploader />} />
             <Route path="/product" element={<ProductList />} />
             <Route path="/vieworder" element={<ViewOrder />} />
+            <Route path="/cart" element={<Unauthorized />} />
+            <Route path="/checkout" element={<Unauthorized />} />
           </Routes>
         </>
       );
@@ -56,9 +60,13 @@ const PrivateRoutes = () => {
         <>
           <Routes>
             <Route path="/image" element={<Unauthorized />} />
+            <Route path="/vieworder" element={<Unauthorized />} />
             <Route path="/updatePassword" element={<UpdatePassword />} />
             <Route path="/updateAccount" element={<UpdateAccount />} />
             <Route path="/product" element={<ProductList />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order" element={<Order />} />
           </Routes>
         </>
       );
@@ -68,6 +76,6 @@ const PrivateRoutes = () => {
   } else {
     return <Navigate to="/unauthorized" element={<Unauthorized />} />;
   }
-}; 
+};
 
 export default PrivateRoutes;
