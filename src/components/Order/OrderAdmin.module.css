@@ -1,22 +1,27 @@
+.tableContainer {
+  width: 100%;
+  max-height: 500px; /* Set the desired maximum height for the table container */
+  overflow: auto; /* Enable both horizontal and vertical scrolling */
+}
+
 .table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin-top: 2rem;
   font-family: Arial, sans-serif;
 }
 
-.th,
-.td {
+.th {
   text-align: left;
   padding: 0.5rem;
-}
-
-.th {
   background-color: #333;
   color: #fff;
 }
 
 .td {
+  text-align: left;
+  padding: 0.5rem;
   border-bottom: 1px solid #ddd;
 }
 
@@ -40,4 +45,23 @@
 
 .canceled {
   color: red;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+}
+
+.itemImage {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.itemName {
+  font-weight: bold;
+}
+
+.itemQuantity {
+  color: #666;
 }

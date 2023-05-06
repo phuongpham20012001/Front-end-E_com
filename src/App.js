@@ -12,7 +12,7 @@ import PrivateRoutes from "./components/utils/PrivateRoute";
 import ImageUploader from "./components/Product/CreateProduct";
 import ProductList from "./components/Product/ViewProduct";
 import { ShopContextProvider } from "./components/Authentication/Context/ShopProvider";
-import { Cart } from "./components/Product/Cart";
+import Cart from "./components/Product/Cart";
 import Checkout from "./components/Product/Check_out";
 import About from "./components/UI/About";
 import ViewOrder from "./components/Order/OrderAdmin";

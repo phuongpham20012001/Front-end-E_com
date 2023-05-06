@@ -38,7 +38,7 @@ const Login = () => {
       localStorage.setItem("token", JSON.stringify(response.data.token));
       setAuth({ user, pwd });
       setRole(response.data.data.user.role)
-   
+      sessionStorage.setItem('role', response.data.data.user.role);
 
       if (response.data.data.user.role === "admin") {
         navigate("/viewadmin");

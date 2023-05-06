@@ -3,48 +3,74 @@
     border-collapse: collapse;
     margin-top: 2rem;
     font-family: Arial, sans-serif;
-}
-
-.th,
-.td {
+  }
+  
+  .th,
+  .td {
     text-align: left;
     padding: 0.5rem;
-}
-
-.th {
+  }
+  
+  .th {
     background-color: #333;
     color: #fff;
-}
-
-.td {
+  }
+  
+  .td {
     border-bottom: 1px solid #ddd;
-}
-
-.ul {
+  }
+  
+  .ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-}
-
-.li {
+  }
+  
+  .li {
     margin-bottom: 0.5rem;
-}
-
-.pending {
+  }
+  
+  .itemContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .itemImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+  
+  .itemDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .itemName {
+    font-weight: bold;
+  }
+  
+  .itemQuantity {
+    color: #888;
+  }
+  
+  .pending {
     color: orange;
-}
-
-.delivered {
+  }
+  
+  .delivered {
     color: green;
-}
-
-.canceled {
+  }
+  
+  .canceled {
     color: rgb(28, 27, 27);
-}
-
-.noOrders {
+  }
+  
+  .noOrders {
     font-size: 1.5rem;
     margin-top: 1rem;
     text-align: center;
     color: rgb(22, 22, 22);
-}
+  }
+  

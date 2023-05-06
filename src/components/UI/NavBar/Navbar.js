@@ -1,22 +1,20 @@
 import styles from "./Navbar.module.css";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import axios from "../../API/axios";
-import RoleContext from "../../Authentication/Context/RoleProvider";
+
 const NavBar = () => {
   const DELETE_URL = "/deleteMe";
   // chỉnh lại cái navBAr
+  const storedValue = sessionStorage.getItem("role");
 
-  const { role, setRole } = useContext(RoleContext);
-
-  // console.log(role);
   let token = localStorage.getItem("token");
 
   const navigate = useNavigate();
   const logout = () => {
-    setRole(null); // Use null instead of empty strings
+    sessionStorage.removeItem("role");
     navigate("/login");
     localStorage.clear();
   };
@@ -50,7 +48,7 @@ const NavBar = () => {
   const closeDropdown = () => {
     setIsDropdownOpen(false);
   };
-  if (role === "admin") {
+  if (storedValue === "admin") {
     return (
       <div>
         <nav className={styles.nav}>
@@ -93,14 +91,14 @@ const NavBar = () => {
         </nav>
       </div>
     );
-  } else if (role === "user") {
+  } else if (storedValue === "user") {
     return (
       <div>
         <nav className={styles.nav}>
           <div className={styles.title}>Logo</div>
           <ul className="ul1">
             <Link to="/product">Product</Link>
-            
+
             <Link to="/about">About</Link>
             <Link to="/order">Order</Link>
           </ul>
