@@ -11,7 +11,7 @@ const About = () => {
       <div>As an user: you can modify your account however you like.</div>
       <div>You can order and track with your account.</div>
       <div>Admin Account: 2@gmail.com pass: 1234567</div>
-      <div>You can track customer's order and modify your products list.</div>
+      <div>You can track customer's order.</div>
     </div>
   );
 };
